@@ -37,6 +37,39 @@ Both models were evaluated on two real-world datasets and benchmarked against We
 
 ---
 
+## Visual Results
+
+### Titanic Dataset
+
+#### Decision Tree
+
+![Decision Tree Titanic](results/dt_tree_titanic.png)
+
+#### Neural Network (BPN)
+
+![BPN Titanic](results/bpn_titanic.png)
+
+#### Confusion Matrix
+
+![Confusion Titanic](results/dt_confusion_titanic.png)
+
+---
+
+### Diabetes Dataset
+
+#### Decision Tree
+
+![Decision Tree Diabetes](results/dt_tree_diabetes.png)
+
+#### Neural Network (BPN)
+
+![BPN Diabetes](results/bpn_diabetes.png)
+
+#### Confusion Matrix
+
+![Confusion Diabetes](results/dt_confusion_diabetes.png)
+
+
 ## Project Structure
 
 ```bash
