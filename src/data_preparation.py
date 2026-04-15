@@ -3,28 +3,28 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 
-# ============================================================
+
 #  DATASET 1: TITANIC
-# ============================================================
+
 def load_titanic(path='Titanic-Dataset.csv'):
     df = pd.read_csv(path)
 
-    # 1) Eliminar columnas que no aportan
+    # 1) delete irrelevant columns
     df = df.drop(columns=['PassengerId', 'Name', 'Ticket', 'Cabin'])
 
-    # 2) Rellenar valores nulos
+    # 2) fill missing values
     df['Age']      = df['Age'].fillna(df['Age'].median())
     df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
 
-    # 3) Encoding de texto → número
+    # 3) Encoding from text to numeric
     df['Sex']      = LabelEncoder().fit_transform(df['Sex'])       # female=0, male=1
     df['Embarked'] = LabelEncoder().fit_transform(df['Embarked'])  # C=0, Q=1, S=2
 
-    # 4) Separar features y target
+    # 4)split features and target
     X = df.drop(columns=['Survived']).values
     y = df['Survived'].values
 
-    # 5) Normalizar
+    # 5) Normalize
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
 
@@ -34,21 +34,19 @@ def load_titanic(path='Titanic-Dataset.csv'):
     )
 
     print(f"[Titanic] Train: {X_train.shape}, Test: {X_test.shape}")
-    print(f"[Titanic] Clases: {np.unique(y)} → 0=No sobrevivió, 1=Sobrevivió\n")
+    print(f"[Titanic] Classes: {np.unique(y)} → 0=No survived, 1=Survived\n")
     return X_train, X_test, y_train, y_test
 
-
-# ============================================================
 #  DATASET 2: DIABETES
-# ============================================================
+
 def load_diabetes(path='diabetes.csv'):
     df = pd.read_csv(path)
 
-    # Separar features y target
+    # Split feautures and target
     X = df.drop(columns=['Outcome']).values
     y = df['Outcome'].values
 
-    # Normalizar
+    # Normalize
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
 
@@ -58,20 +56,18 @@ def load_diabetes(path='diabetes.csv'):
     )
 
     print(f"[Diabetes] Train: {X_train.shape}, Test: {X_test.shape}")
-    print(f"[Diabetes] Clases: {np.unique(y)} → 0=Sano, 1=Diabetes\n")
+    print(f"[Diabetes] Classes: {np.unique(y)} → 0=Healthy, 1=Diabetes\n")
     return X_train, X_test, y_train, y_test
 
 
-# ============================================================
-#  MAIN — prueba que todo funciona
-# ============================================================
+#  MAIN 
 if __name__ == '__main__':
     print("=" * 50)
-    print("  FASE 1 — Preparación de Datos")
+    print("  PHASE 1 — DATA PREPARATION")
     print("=" * 50)
     print()
 
-    X_train_t, X_test_t, y_train_t, y_test_t = load_titanic('datasets/Titanic-Dataset.csv')
-    X_train_d, X_test_d, y_train_d, y_test_d = load_diabetes('datasets/diabetes.csv')
+    X_train_t, X_test_t, y_train_t, y_test_t = load_titanic(r'C:\Users\calda\DatMining\Data-Mining-Analysis\datasets\Titanic-Dataset.csv')
+    X_train_d, X_test_d, y_train_d, y_test_d = load_diabetes(r'C:\Users\calda\DatMining\Data-Mining-Analysis\datasets\diabetes.csv')
 
-    print("✅ Ambos datasets listos para el BPN.")
+    print(" Both datasets ready for BPN.")

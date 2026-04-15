@@ -119,8 +119,8 @@ if __name__ == '__main__':
     print("=" * 60)
 
     # ── Load datasets ─────────────────────────────────────────
-    X_train_t, X_test_t, y_train_t, y_test_t = load_titanic('datasets/Titanic-Dataset.csv')
-    X_train_d, X_test_d, y_train_d, y_test_d = load_diabetes('datasets/diabetes.csv')
+    X_train_t, X_test_t, y_train_t, y_test_t = load_titanic(r'C:\Users\calda\DatMining\Data-Mining-Analysis\datasets\Titanic-Dataset.csv')
+    X_train_d, X_test_d, y_train_d, y_test_d = load_diabetes(r'C:\Users\calda\DatMining\Data-Mining-Analysis\datasets\diabetes.csv')
 
     titanic_features  = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
     diabetes_features = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness',
