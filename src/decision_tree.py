@@ -86,7 +86,7 @@ def plot_confusion_matrix(model, X_test, y_test, dataset_name):
     plt.tight_layout()
     plt.savefig(f'dt_confusion_{dataset_name.lower().replace(" ", "_")}.png', dpi=150)
     plt.show()
-    print(f"  📊 Confusion matrix saved.")
+    print(f"  Confusion matrix saved.")
 
 
 # ============================================================
@@ -107,7 +107,7 @@ def plot_decision_tree(model, feature_names, dataset_name):
     plt.tight_layout()
     plt.savefig(f'dt_tree_{dataset_name.lower().replace(" ", "_")}.png', dpi=150)
     plt.show()
-    print(f"  📊 Decision tree plot saved.")
+    print(f"  Decision tree plot saved.")
 
 
 # ============================================================
@@ -115,7 +115,7 @@ def plot_decision_tree(model, feature_names, dataset_name):
 # ============================================================
 if __name__ == '__main__':
     print("=" * 60)
-    print("  FASE 3 — Decision Tree")
+    print("  PHASE 3 — Decision Tree")
     print("=" * 60)
 
     # ── Load datasets ─────────────────────────────────────────
